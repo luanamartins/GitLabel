@@ -1,12 +1,3 @@
-from os import walk
-
-def listGitFolders(path):
-    directories = []
-    for (_, dirnames, _) in walk(path):
-#       files.extend(filenames)
-        directories.extend(dirnames)
-        break
-    return directories
 
 def writeOnFile(filepath, label, listOfFiles):
     extensionFile = ".txt"
@@ -18,6 +9,5 @@ def writeOnFile(filepath, label, listOfFiles):
         file.write('\n')
     file.close()
 #     print(listOfFiles)
-
 
      
