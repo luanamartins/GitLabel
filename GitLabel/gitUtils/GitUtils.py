@@ -2,10 +2,13 @@ from os import walk
 import os
 import subprocess
 
+def changeDirectoryPath(path):
+    os.chdir(path)
+
 def listBranches(path):
     os.chdir(path)
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    branchesFilepath = BASE_DIR + '/files/branchesFilepath.txt'
+    currentWorkingPath = os.path.dirname(os.path.dirname(__file__))
+    branchesFilepath = currentWorkingPath + '/files/branchesFilepath.txt'
     branchesFile = open(branchesFilepath, 'w+')
     subprocess.call(["git", "branch", "-r"], stdout=branchesFile)
     b = open(branchesFilepath, 'r')
@@ -15,6 +18,9 @@ def listBranches(path):
         print(lines[len(lines) - 1])
         branches.append(lines[len(lines) - 1])
         
+def gitFetch():
+    subprocess.call(["git", "fetch"])
+
 def checkoutBranch(path, branch):
     subprocess.call(["git", "checkout", branch])
     
