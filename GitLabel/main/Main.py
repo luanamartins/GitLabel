@@ -1,26 +1,14 @@
-from persistence.FileWriter import listGitFolders
-import os
-import subprocess
+from gitUtils.GitUtils import checkoutBranch, changeDirectoryPath, gitFetch
 
 if __name__ == '__main__':
+
     path = ''
-    gitProjectName = 'ClientChat'
-    directories = listGitFolders(path)
-#     print(directories)
-    
-    label = "Test projetos"
-    os.chdir(path + gitProjectName)
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    branchesFilepath = BASE_DIR + '/files/branchesFilepath.txt'
-    branchesFile = open(branchesFilepath, 'w+')
-    subprocess.call(["git", "branch", "-r"], stdout=branchesFile)
-    b = open(branchesFilepath, 'r')
-    for branchFullname in b:
-        #print(branchFullname)
-        lines = branchFullname.split("/")
-        #print(lines)
-        print(lines[len(lines) - 1])
-        
-    
-        
-        
+    projects = ['ClientChat', 'ServerChat', 'ConvertingQueries']
+#     branches = ['feature-user-interface', 'feature-structure', 'feature-structure']
+    branches = ['master', 'master', 'master']
+    mapper = map(lambda proj, branch: (proj, branch), projects, branches)
+    for (proj, branch) in mapper:
+        print(proj)
+        changeDirectoryPath(path + proj)
+        gitFetch()
+        checkoutBranch(branch)
