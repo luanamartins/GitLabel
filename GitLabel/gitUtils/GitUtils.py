@@ -21,7 +21,7 @@ def listBranches(path):
 def gitFetch():
     subprocess.call(["git", "fetch"])
 
-def checkoutBranch(path, branch):
+def checkoutBranch(branch):
     subprocess.call(["git", "checkout", branch])
     
 def listFolders(path):
