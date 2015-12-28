@@ -1,0 +1,3 @@
+
+OK = 0
+UNABLE_TO_ACCESS = 128
