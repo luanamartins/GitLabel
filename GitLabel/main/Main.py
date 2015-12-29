@@ -1,14 +1,16 @@
-from gitUtils.GitUtils import checkoutBranch, changeDirectoryPath, gitFetch
+from gitUtils.GitUtils import checkoutBranch, changeDirectoryPath, gitFetch, gitStatus
 
-if __name__ == '__main__':
-
-    path = ''
-    projects = ['ClientChat', 'ServerChat', 'ConvertingQueries']
-#     branches = ['feature-user-interface', 'feature-structure', 'feature-structure']
-    branches = ['master', 'master', 'master']
-    mapper = map(lambda proj, branch: (proj, branch), projects, branches)
-    for (proj, branch) in mapper:
-        print(proj)
-        changeDirectoryPath(path + proj)
+def checkoutBranches(path, projects, branches):
+    mapper = map(lambda project, branch: (project, branch), projects, branches)
+    for (project, branch) in mapper:
+        print(project)
+        gitStatus()
+        changeDirectoryPath(path + project)
         gitFetch()
         checkoutBranch(branch)
+
+if __name__ == '__main__':
+    path = ''
+    projects = ['ConvertingQueries']
+    branches = ['master']
+    checkoutBranches(path, projects, branches)
