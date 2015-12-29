@@ -1,16 +1,19 @@
 from gitUtils.GitUtils import checkoutBranch, changeDirectoryPath, gitFetch, gitStatus
+import sys
 
-def checkoutBranches(path, projects, branches):
-    mapper = map(lambda project, branch: (project, branch), projects, branches)
+def checkoutBranches(mapper):
+#     mapper = map(lambda project, branch: (project, branch), projects, branches)
     for (project, branch) in mapper:
         print(project)
         gitStatus()
-        changeDirectoryPath(path + project)
+        changeDirectoryPath(project)
         gitFetch()
         checkoutBranch(branch)
 
+def main(args):
+    print(args)
+    tuples = eval("%s" % args)
+    checkoutBranches(tuples)
+
 if __name__ == '__main__':
-    path = ''
-    projects = ['ConvertingQueries']
-    branches = ['master']
-    checkoutBranches(path, projects, branches)
+    main(sys.argv[1])
