@@ -5,6 +5,10 @@ import subprocess
 def changeDirectoryPath(path):
     os.chdir(path)
 
+def gitCurrentBranch():
+    return subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+    
+
 def listBranches(path):
     os.chdir(path)
     currentWorkingPath = os.path.dirname(os.path.dirname(__file__))
