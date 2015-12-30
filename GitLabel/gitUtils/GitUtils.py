@@ -1,15 +1,14 @@
-from os import walk
-import os
+from os import walk, chdir
 import subprocess
 
 def changeDirectoryPath(path):
-    os.chdir(path)
+    chdir(path)
 
 def gitCurrentBranch():
     return subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
 
 def listBranches(path):
-    os.chdir(path)
+    chdir(path)
     output = subprocess.check_output(["git", "branch", "-r"])
     output = output.decode(encoding='utf_8').split('\n')
     return map(lambda br : br.strip(), output)

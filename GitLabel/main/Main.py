@@ -1,5 +1,5 @@
-from gitUtils.GitUtils import checkoutBranch, changeDirectoryPath, gitFetch, gitStatus
 import sys
+from gitUtils.GitUtils import checkoutBranch, changeDirectoryPath, gitFetch, gitStatus
 
 def checkoutBranches(mapper):
 #     mapper = map(lambda project, branch: (project, branch), projects, branches)
