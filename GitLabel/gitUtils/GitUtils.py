@@ -10,17 +10,9 @@ def gitCurrentBranch():
 
 def listBranches(path):
     os.chdir(path)
-    currentWorkingPath = os.path.dirname(os.path.dirname(__file__))
-    branchesFilepath = currentWorkingPath + '/files/branchesFilepath.txt'
-    branchesFile = open(branchesFilepath, 'w+')
-    subprocess.call(["git", "branch", "-r"], stdout = branchesFile)
-    b = open(branchesFilepath, 'r')
-    branches = []
-    for branchFullname in b:
-        lines = branchFullname.split("/")
-        print(lines[len(lines) - 1])
-        branches.append(lines[len(lines) - 1])
-    return branches
+    output = subprocess.check_output(["git", "branch", "-r"])
+    output = output.decode(encoding='utf_8').split('\n')
+    return map(lambda br : br.strip(), output)
 
 def gitFetch():
     res = subprocess.call(["git", "fetch"])
