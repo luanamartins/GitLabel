@@ -7,7 +7,6 @@ def changeDirectoryPath(path):
 
 def gitCurrentBranch():
     return subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
-    
 
 def listBranches(path):
     os.chdir(path)
@@ -21,6 +20,7 @@ def listBranches(path):
         lines = branchFullname.split("/")
         print(lines[len(lines) - 1])
         branches.append(lines[len(lines) - 1])
+    return branches
 
 def gitFetch():
     res = subprocess.call(["git", "fetch"])
