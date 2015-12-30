@@ -1,6 +1,6 @@
 # GitLabel
 
-This project aims to organize branches on git repositories. The core idea is tag a feature, binding it to a set of branches on diferents projects. 
+This project aims to organize branches on git repositories. The core idea is tag a feature, binding it to a set of branches on diferent projects. 
 
 Requirements for development:
  - Python 3.4
