@@ -17,14 +17,11 @@ def gitBranch():
     return subprocess.check_output(["git", "branch", "-r"])
 
 def gitFetch():
-    res = subprocess.call(["git", "fetch"])
-    print(res)
+    return subprocess.call(["git", "fetch"])
 
 def gitStatus():
-    res = subprocess.call(["git", "status"])
-    print(res)
+    return subprocess.call(["git", "status"])
 
 def checkoutBranch(branch):
-    res = subprocess.call(["git", "checkout", branch])
-    print('Checkout = ' + str(res))
+    return subprocess.call(["git", "checkout", branch])
 
