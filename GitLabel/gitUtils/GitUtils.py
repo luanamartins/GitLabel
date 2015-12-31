@@ -1,4 +1,4 @@
-from os import walk, chdir
+from os import chdir
 import subprocess
 
 def changeDirectoryPath(path):
@@ -28,10 +28,3 @@ def checkoutBranch(branch):
     res = subprocess.call(["git", "checkout", branch])
     print('Checkout = ' + str(res))
 
-def listFolders(path):
-    directories = []
-    for (_, dirnames, _) in walk(path):
-#       files.extend(filenames)
-        directories.extend(dirnames)
-        break
-    return directories
