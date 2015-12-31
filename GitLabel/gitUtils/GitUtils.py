@@ -8,10 +8,13 @@ def gitCurrentBranch():
     return subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
 
 def listBranches(path):
-    chdir(path)
-    output = subprocess.check_output(["git", "branch", "-r"])
+    changeDirectoryPath(path)
+    output = gitBranch()
     output = output.decode(encoding='utf_8').split('\n')
-    return map(lambda br : br.strip(), output)
+    return map(lambda branch : branch.strip(), output)
+
+def gitBranch():
+    return subprocess.check_output(["git", "branch", "-r"])
 
 def gitFetch():
     res = subprocess.call(["git", "fetch"])
