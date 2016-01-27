@@ -2,7 +2,7 @@
 
 This project aims to organize branches on git repositories. The core idea is to tag a feature, binding it to a set of branches on diferent projects. Those projects suppose to work together, although they are currently based in different branches.
 
-## Requirements for development:
+## Requirements for development
  - Python 3.4
  - Eclipse Mars
  - Unittest
