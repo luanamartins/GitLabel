@@ -6,6 +6,9 @@
     - Describe issue with some steps in order to reproduce the bug found
     - Add the software version which the issue was found
 
+## Creating issues
+  - To do
+
 ## Making changes
   - Pick a issue (or create one) you're willing to work out
   - Create a branch of master and name it properly
