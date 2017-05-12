@@ -7,11 +7,21 @@ This project aims to organize branches on git repositories. The core idea is to 
  - Eclipse Mars
  - Unittest
 
+## Process
+- Checkout the branch
+- Create a tag to a tuple (Project, Branch)
+- Whether a checkout fails, undo previous checkouts to older branch
+
 ## Installation instructions
  - TO DO
 
 ## Configuration instructions
  - TO DO
+ 
+## Commands
+- gitlabel checkout “label”
+- gitlabel add “label” [(“project 1”, “branch 1”), (“project 2”, “branch 2”)]
+
 
 ## Copyright and licensing information
 GNU GENERAL PUBLIC LICENSE (Version 2, June 1991)
